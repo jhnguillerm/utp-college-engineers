@@ -48,7 +48,7 @@
                     <%
                         }
                     %>
-                    <form  action="View/register.jsp" method="post" >
+                    <form  action="register.jsp" method="post" >
                         <div class="form" action>
                             <label>
                                 <i class='bx bx-user'></i>

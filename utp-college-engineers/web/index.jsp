@@ -57,7 +57,7 @@
                 %>
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="align-middle px-1"><%= nombres%></span>
-                    <img src="<%= "/utp-college-engineers/SvPersona?id=" + id%>" alt="foto-perfil" width="32" height="32" class="rounded-circle">
+                    <img src="<%= "/utp-college-engineers/SvPersona?id=" + id%>" alt="" width="32" height="32" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="View/perfil.jsp?<%= id%>">Perfil</a></li>
@@ -280,16 +280,6 @@
 
                     <p class="email-id">admision@utp.edu.pe</p>
                     <h4>+51 123 456 789</h4>
-                </div>
-                <div class="col">
-                    <h3>Links<div class="underline"><span></span></div></h3>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Servicios</a></li>
-                        <li><a href="">About </a></li>
-                        <li><a href="">Features</a></li>
-                        <li><a href="">Contacts</a></li>
-                    </ul>
                 </div>
                 <div class="col">
                     <h3>Contactanos<div class="underline"><span></span></div></h3>

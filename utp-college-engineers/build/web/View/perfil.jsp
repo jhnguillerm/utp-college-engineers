@@ -51,7 +51,7 @@
                                 </div>
                                 <% if ("Administrador".equals(persona.getRol())) { %>
                                     <div class="d-flex justify-content-center mb-2">
-                                        <a href="panelAdmin.jsp" class="btn btn-dark rounded-0">Administrar sistema</a>
+                                        <a href="panelNoticia.jsp" class="btn btn-dark rounded-0">Administrar sistema</a>
                                     </div>
                                 <% } %>
                             </div>

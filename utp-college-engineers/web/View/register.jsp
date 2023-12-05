@@ -33,7 +33,7 @@
                 response.sendRedirect("../index.jsp?message=Correo ya esta siendo usado por otro Usuario");
             } else {
                 // El correo no está en uso, proceder con la inserción
-                String insertQuery = "INSERT INTO user (nombres, correo, password) VALUES ('" + name + "', '" + address + "', '" + pass + "')";
+                String insertQuery = "INSERT INTO user (nombres, correo, password, rol) VALUES ('" + name + "', '" + address + "', '" + pass + "', 'Estudiante')";
                 statement.executeUpdate(insertQuery);
                 response.sendRedirect("../index.jsp");
             }

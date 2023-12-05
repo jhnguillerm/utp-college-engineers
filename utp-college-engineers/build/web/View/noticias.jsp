@@ -18,6 +18,8 @@
         <title>UTP - Facultad de Ingeniería</title>
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
         <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
         <!-- Estilos -->
@@ -41,59 +43,55 @@
             <div class="news-header">
                 <h2>Noticias</h2>
             </div>
-            <%
-                NoticiaDAO noticiaDAO = new NoticiaDAO();
-                List<Noticia> list = noticiaDAO.toList();
-                Iterator<Noticia> iterador = list.iterator();
-                Noticia noticia = null;
+            <table id="tabla" class="table" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        NoticiaDAO noticiaDAO = new NoticiaDAO();
+                        List<Noticia> list = noticiaDAO.toList();
+                        Iterator<Noticia> iterador = list.iterator();
+                        Noticia noticia = null;
 
-                while (iterador.hasNext()) {
-                    noticia = iterador.next();
-            %>
-            <div class="news-item">
-                <div class="news-image-container">
-                    <%
-                        String imagePath = "/utp-college-engineers/SvNoticia?id=" + noticia.getId_noticia();
-                        if (noticia.getImagen() != null) {
+                        while (iterador.hasNext()) {
+                            noticia = iterador.next();
                     %>
-                    <img class="news-img" src="<%= imagePath%>" alt="no-photo" />
-                    <%
-                    } else {
-                    %>
-                    <img class="news-img" src="../images/no-photo.jpg" alt="no-photo" />
+                    <tr>
+                        <td>
+                            <div class="news-item">
+                                <div class="news-image-container">
+                                    <%
+                                        String imagePath = "/utp-college-engineers/SvNoticia?id=" + noticia.getId_noticia();
+                                        if (noticia.getImagen() != null) {
+                                    %>
+                                    <img class="news-img" src="<%= imagePath%>" alt="no-photo" />
+                                    <%
+                                    } else {
+                                    %>
+                                    <img class="news-img" src="../images/no-photo.jpg" alt="no-photo" />
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                                <div class="news-content-container">
+                                    <h3 class="news-title"><%= noticia.getTitulo()%></h3>
+                                    <span class="news-date"><%= noticia.getFecha()%></span>
+                                    <p class="news-description"><%= noticia.getDescripcion()%></p>
+                                    <a class="news-link" href="#">Ver noticia <i class="fa-solid fa-arrow-right-long"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                     <%
                         }
                     %>
-                </div>
-                <div class="news-content-container">
-                    <h3 class="news-title"><%= noticia.getTitulo()%></h3>
-                    <span class="news-date"><%= noticia.getFecha()%></span>
-                    <p class="news-description"><%= noticia.getDescripcion()%></p>
-                    <a class="news-link" href="#">Ver noticia <i class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-            </div>
-            <%
-                }
-            %>
+                </tbody>
+            </table>
         </section>
-        
-        <div class="w-100 d-flex justify-content-center">
-            <nav aria-label="...">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
         <!-- /Noticias -->
 
         <!-- Footer -->
@@ -114,16 +112,6 @@
                     <h4>+51 123 456 789</h4>
                 </div>
                 <div class="col">
-                    <h3>Links<div class="underline"><span></span></div></h3>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Servicios</a></li>
-                        <li><a href="">About </a></li>
-                        <li><a href="">Features</a></li>
-                        <li><a href="">Contacts</a></li>
-                    </ul>
-                </div>
-                <div class="col">
                     <h3>Contactanos<div class="underline"><span></span></div></h3>
                     <form >
                         <i class="far fa-envelope"></i>
@@ -142,7 +130,21 @@
             <p class="copyright">ESTUDIANTES UTP 2033-Todos los derechos reservados</p>
         </footer>
         <!-- /Footer -->
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- Paginación -->
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#tabla').DataTable({
+                    "paging": true,
+                    "lengthMenu": [5, 10, 25, 50],
+                    "searching": false
+                });
+            });
+        </script>
     </body>
 </html>

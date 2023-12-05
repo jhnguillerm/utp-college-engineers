@@ -65,7 +65,7 @@
                         </td>
                         <td>
                             <!-- Boton editar -->
-                            <a href="editarNoticia.jsp?id_noticia=<%= noticia.getId_noticia()%>" class="btn text-primary">
+                            <a href="editarNoticia.jsp?id=<%= noticia.getId_noticia()%>" class="btn text-primary">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                             <!-- Boton eliminar -->

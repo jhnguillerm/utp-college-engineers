@@ -2,7 +2,7 @@
 <%@page import="Model.Noticia"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String idNoticiaParam = request.getParameter("id_noticia");
+    String idNoticiaParam = request.getParameter("id");
     int idNoticia = (idNoticiaParam != null && !idNoticiaParam.isEmpty()) ? Integer.parseInt(idNoticiaParam) : 0;
     NoticiaDAO noticiaDAO = new NoticiaDAO();
     Noticia noticia = noticiaDAO.getNoticiaById(idNoticia);
@@ -28,7 +28,7 @@
                     <h4 class="mb-1 mt-3">Editar Noticia</h4>
                 </div>
                 <div class="d-flex align-content-center flex-wrap gap-3">
-                    <button type="submit" class="btn btn-danger rounded-0" id="btn-agregar" name="action" value="edit">Editar Noticia</button>
+                    <button type="submit" class="btn btn-danger rounded-0" name="action" value="edit">Editar Noticia</button>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                                 <div class="col-4">
                                     <label class="form-label" for="txtIdNoticia">ID</label>
                                     <input type="text" class="form-control" id="txtIdNoticia" disabled value="<%= noticia.getId_noticia()%>">
-                                    <input name="txtIdNoticia" type="hidden" id="txtIdNoticia-hidden" class="form-control" value="<%= noticia.getId_noticia()%>">
+                                    <input type="hidden" name="txtIdNoticia" value="<%= noticia.getId_noticia()%>">
                                 </div>
                             </div>
                             <!-- Titulo y Fecha de Publicación -->
@@ -83,12 +83,6 @@
                             <div class="mb-3">
                                 <label class="form-label" for="fileImagen">Imagen</label>
                                 <input type="file" class="form-control" id="fileImagen" name="fileImagen">
-                            </div>
-                            <!-- Imagen URL -->
-                            <div class="mb-3">
-                                <label class="form-label" for="txtImagenURL">URL de la Imagen</label>
-                                <input type="text" class="form-control" id="txtImagenURL" placeholder="URL de la imagen" name="txtImagenURL"
-                                       value="<%= noticia.getImagen_url()%>">
                             </div>
                         </div>
                     </div>

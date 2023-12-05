@@ -71,17 +71,14 @@ public class SvNoticia extends HttpServlet {
 
             response.sendRedirect(request.getContextPath() + "/View/panelNoticia.jsp");
         } else if ("edit".equals(action)) {
-            // Obtener los valores actualizados de los campos del formulario
             int idNoticia = Integer.parseInt(request.getParameter("txtIdNoticia"));
             String titulo = request.getParameter("txtTitulo");
             String fecha = request.getParameter("txtFechaPublicacion");
             String descripcion = request.getParameter("txtDescripcion");
 
-            // Obtener el Part para la imagen
             Part filePart = request.getPart("fileImagen");
             InputStream inputStream = filePart.getInputStream();
 
-            // Crear una instancia de Noticia con los nuevos valores
             Noticia noticiaActualizada = new Noticia();
             noticiaActualizada.setId_noticia(idNoticia);
             noticiaActualizada.setTitulo(titulo);
@@ -89,19 +86,14 @@ public class SvNoticia extends HttpServlet {
             noticiaActualizada.setDescripcion(descripcion);
             noticiaActualizada.setImagen(inputStream);
 
-            // Actualizar la noticia en la base de datos
             noticiaDAO.update(noticiaActualizada);
 
-            // Redirigir a tu página de noticias o donde desees
             response.sendRedirect(request.getContextPath() + "/View/panelNoticia.jsp");
         } else if ("delete".equals(action)) {
-            // Obtener el ID de la noticia a eliminar
-            int idNoticia = Integer.parseInt(request.getParameter("id_noticia"));
+            int idNoticia = Integer.parseInt(request.getParameter("id"));
 
-            // Lógica para eliminar la noticia
             noticiaDAO.delete(idNoticia);
 
-            // Redirigir a tu página de noticias o donde desees después de la eliminación
             response.sendRedirect(request.getContextPath() + "/View/panelNoticia.jsp");
         }
     }
