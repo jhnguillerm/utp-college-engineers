@@ -43,7 +43,6 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
                 noticia.setTitulo(rs.getString("titulo"));
                 noticia.setFecha(rs.getString("fecha_publicacion"));
                 noticia.setDescripcion(rs.getString("descripcion"));
-                noticia.setImagen_url(rs.getString("imagen_url"));
 
                 list.add(noticia);
             }
@@ -79,7 +78,7 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
     }
 
     public void create(Noticia noticia) {
-        String sql = "INSERT INTO noticia (imagen, titulo, fecha_publicacion, descripcion, imagen_url) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO noticia (imagen, titulo, fecha_publicacion, descripcion) VALUES (?, ?, ?, ?)";
 
         try {
             connection = conexionDB.getConnection();
@@ -90,7 +89,6 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
             ps.setString(2, noticia.getTitulo());
             ps.setString(3, noticia.getFecha());
             ps.setString(4, noticia.getDescripcion());
-            ps.setString(5, noticia.getImagen_url());
 
             ps.executeUpdate();
         } catch (Exception e) {
@@ -99,7 +97,7 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
     }
 
     public void update(Noticia noticia) {
-        String sql = "UPDATE noticia SET imagen = ?, titulo = ?, fecha_publicacion = ?, descripcion = ?, imagen_url = ? WHERE id = ?";
+        String sql = "UPDATE noticia SET imagen = ?, titulo = ?, fecha_publicacion = ?, descripcion = ? WHERE id = ?";
 
         try {
             connection = conexionDB.getConnection();
@@ -110,8 +108,7 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
             ps.setString(2, noticia.getTitulo());
             ps.setString(3, noticia.getFecha());
             ps.setString(4, noticia.getDescripcion());
-            ps.setString(5, noticia.getImagen_url());
-            ps.setInt(6, noticia.getId_noticia());
+            ps.setInt(5, noticia.getId_noticia());
 
             ps.executeUpdate();
         } catch (Exception e) {
@@ -139,7 +136,6 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
                 noticia.setTitulo(rs.getString("titulo"));
                 noticia.setFecha(rs.getString("fecha_publicacion"));
                 noticia.setDescripcion(rs.getString("descripcion"));
-                noticia.setImagen_url(rs.getString("imagen_url"));
             }
         } catch (Exception e) {
             System.out.println("Noticia - getNoticiaById: " + e);
@@ -186,7 +182,6 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
                 noticia.setTitulo(rs.getString("titulo"));
                 noticia.setFecha(rs.getString("fecha_publicacion"));
                 noticia.setDescripcion(rs.getString("descripcion"));
-                noticia.setImagen_url(rs.getString("imagen_url"));
 
                 list.add(noticia);
             }

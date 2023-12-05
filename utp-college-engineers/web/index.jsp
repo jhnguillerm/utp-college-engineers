@@ -221,11 +221,9 @@
         <!-- /Noticias -->
         <!-- Eventos -->
         <div class="container-fluid w-100">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="d-flex position-relative float-left">
-                        <h3 class="section-title">Eventos</h3>
-                    </div>
+            <div class="news-section">
+                <div class="news-header">
+                    <h2>Eventos</h2>
                 </div>
             </div>
 
@@ -252,14 +250,14 @@
                     <p class="fs-15 font-weight-normal">
                         <%= descripcion%>
                     </p>
-                    <a href="#" class="font-weight-bold text-dark pt-2">Ver evento</a>
+                    <a class="news-link" href="#">Ver Evento <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 <%
                     }
                 %>
             </div>
 
-            <div class="row justify-content-center w-100">
+            <div class="news-section">
                 <div class="news-more">
                     <a class="news-more-link" href="View/eventos.jsp">Ver más eventos</a>
                 </div>

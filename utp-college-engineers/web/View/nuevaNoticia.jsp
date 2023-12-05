@@ -74,11 +74,6 @@
                                 <label class="form-label" for="fileImagen">Imagen</label>
                                 <input type="file" class="form-control" id="fileImagen" name="fileImagen">
                             </div>
-                            <!-- Imagen URL -->
-                            <div class="mb-3">
-                                <label class="form-label" for="txtImagenURL">URL de la Imagen</label>
-                                <input type="text" class="form-control" id="txtImagenURL" placeholder="URL de la imagen" name="txtImagenURL">
-                            </div>
                         </div>
                     </div>
                 </div>

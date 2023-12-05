@@ -34,23 +34,7 @@
     </head>
     <body>
         <!-- Navegación -->
-        <nav class="nav">
-            <div class="nav-container">
-                <a class="logo-link" href="../index.jsp"><img class="logo" src="../svg/logo-utp.svg" alt="Logo" /></a>
-                <div class="vertical-rule"></div>
-                <div>
-                    <span>Facultad de</span>
-                    <span>Ingeniería</span>
-                </div>
-            </div>
-            <div class="nav-menu">
-                <a class="nav-link" href="noticias.jsp">Noticias</a>
-                <a class="nav-link" href="Eventos.jsp">Eventos</a>
-                <a class="nav-link" href="#">Preguntas</a>
-                <a class="nav-link" href="#">Productividad</a>
-                <a class="nav-link" href="#">Únete</a>
-            </div>
-        </nav>
+        <jsp:include page="../components/navbar.jsp" />
         <!-- / Navegación -->
         <!-- Noticias -->
         <section class="news-container">

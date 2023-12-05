@@ -60,14 +60,12 @@ public class SvNoticia extends HttpServlet {
             String titulo = request.getParameter("txtTitulo");
             String fecha = request.getParameter("txtFechaPublicacion");
             String descripcion = request.getParameter("txtDescripcion");
-            String imagenURL = request.getParameter("txtImagenURL");
 
             Noticia nuevaNoticia = new Noticia();
             nuevaNoticia.setImagen(inputStream);
             nuevaNoticia.setTitulo(titulo);
             nuevaNoticia.setFecha(fecha);
             nuevaNoticia.setDescripcion(descripcion);
-            nuevaNoticia.setImagen_url(imagenURL);
 
             noticiaDAO.create(nuevaNoticia);
 
@@ -78,7 +76,6 @@ public class SvNoticia extends HttpServlet {
             String titulo = request.getParameter("txtTitulo");
             String fecha = request.getParameter("txtFechaPublicacion");
             String descripcion = request.getParameter("txtDescripcion");
-            String imagenURL = request.getParameter("txtImagenURL");
 
             // Obtener el Part para la imagen
             Part filePart = request.getPart("fileImagen");
@@ -90,7 +87,6 @@ public class SvNoticia extends HttpServlet {
             noticiaActualizada.setTitulo(titulo);
             noticiaActualizada.setFecha(fecha);
             noticiaActualizada.setDescripcion(descripcion);
-            noticiaActualizada.setImagen_url(imagenURL);
             noticiaActualizada.setImagen(inputStream);
 
             // Actualizar la noticia en la base de datos
