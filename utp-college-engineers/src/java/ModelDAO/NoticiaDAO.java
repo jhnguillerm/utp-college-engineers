@@ -1,11 +1,9 @@
 package ModelDAO;
 
 import Config.ConexionDB;
-import Interface.CRUD;
 import Model.Noticia;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
@@ -16,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
-public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
+public class NoticiaDAO extends ConexionDB {
 
     ConexionDB conexionDB = new ConexionDB();
     Connection connection = null;
@@ -212,15 +210,12 @@ public class NoticiaDAO extends ConexionDB /*implements CRUD<Noticia>*/ {
     public List<Noticia> pagination(int startIndex, int count) {
         List<Noticia> allNoticias = toList();
 
-        // Verificar si el índice de inicio es válido
         if (startIndex < 0 || startIndex >= allNoticias.size()) {
-            return Collections.emptyList(); // Índice fuera de rango, devuelve una lista vacía
+            return Collections.emptyList();
         }
 
-        // Calcular el índice final
         int endIndex = Math.min(startIndex + count, allNoticias.size());
 
-        // Obtener la sublista de noticias desde el índice de inicio hasta el índice final
         return allNoticias.subList(startIndex, endIndex);
     }
 

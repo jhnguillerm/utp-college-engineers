@@ -61,7 +61,7 @@
                     <% if (persona.getImagen() != null) {%>
                     <img src="<%= imagePath%>" alt="" width="32" height="32" class="rounded-circle">
                     <% } else { %>
-                    <img src="../images/no-photo.jpg" alt="no-photo" width="32" height="32" class="rounded-circle">
+                    <img src="images/no-photo.jpg" alt="" width="32" height="32" class="rounded-circle">
                     <% }%>
                 </a>
                 <ul class="dropdown-menu">

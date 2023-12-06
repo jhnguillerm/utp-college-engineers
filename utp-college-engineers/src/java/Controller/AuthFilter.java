@@ -48,27 +48,22 @@ public class AuthFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        // Obtener la sesión
         HttpSession session = httpRequest.getSession(false);
 
-        // Verificar si existe una sesión y si el usuario está autenticado
         boolean isLoggedIn = (session != null && session.getAttribute("correo") != null);
 
-        // Obtener la URL solicitada
         String requestURI = httpRequest.getRequestURI();
 
-        // Verificar si la solicitud es para un recurso estático (imagen, CSS, script, etc.)
         boolean isStaticResource = requestURI.matches(".+\\.(jpg|jpeg|png|gif|css|js|woff|woff2|ttf|svg)$");
         
         if (isLoggedIn || requestURI.endsWith("View/login.jsp") || requestURI.endsWith("index.jsp")
                 || requestURI.endsWith("SvLogin") || requestURI.endsWith("login.css") 
+                || requestURI.endsWith("SvNoticia") || requestURI.endsWith("NoticiaDAO.java")
                 || requestURI.endsWith("utp.png") || requestURI.endsWith("script.js") 
                 || requestURI.endsWith("register.jsp") || requestURI.endsWith("style.css") 
-                || isStaticResource || requestURI.endsWith("View/noticias.jsp") || requestURI.endsWith("View/Eventos.jsp")) {
-            // Si el usuario está autenticado o está accediendo a la página de inicio o al servlet de inicio de sesión, permitir el acceso
+                || isStaticResource || requestURI.endsWith("View/noticias.jsp") || requestURI.endsWith("eventos.jsp")) {
             chain.doFilter(request, response);
         } else {
-            // Si el usuario no está autenticado y está tratando de acceder a otras páginas, redirigir a la página de inicio de sesión
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsp");
         }
 

@@ -102,8 +102,6 @@
                         <%
                             }
                         %>
-
-
                         <div class="form">
                             <form action="${pageContext.request.contextPath}/SvLogin" method="post">
 
@@ -122,12 +120,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <script src="${pageContext.request.contextPath}/Script/script.js"></script>
-
-
 
     </body>
 

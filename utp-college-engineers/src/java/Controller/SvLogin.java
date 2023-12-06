@@ -38,9 +38,7 @@ public class SvLogin extends HttpServlet {
         String accion = request.getParameter("accion");
 
         if (accion != null && accion.equals("login")) {
-            // Verificar si ya hay una sesión activa
             if (session.getAttribute("usuario") != null) {
-                // El usuario ya está autenticado, redirigir a la página principal
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
                 return;
             }
@@ -54,7 +52,6 @@ public class SvLogin extends HttpServlet {
             if (empleado != null && empleado.getCorreo() != null) {
                 session.setAttribute("usuario", empleado);
 
-                // Puedes seguir almacenando atributos individuales si lo necesitas
                 session.setAttribute("correo", empleado.getCorreo());
                 session.setAttribute("nombres", empleado.getNombres());
                 session.setAttribute("id", empleado.getId());

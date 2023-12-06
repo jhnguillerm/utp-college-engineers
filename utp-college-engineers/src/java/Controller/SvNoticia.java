@@ -32,16 +32,12 @@ public class SvNoticia extends HttpServlet {
         String pageParam = request.getParameter("page");
         int page = (pageParam != null && !pageParam.isEmpty()) ? Integer.parseInt(pageParam) : 1;
 
-        // Número de noticias por página
         int pageSize = 5;
 
-        // Calcular el índice de inicio basado en la página actual y el tamaño de la página
         int startIndex = (page - 1) * pageSize;
 
-        // Obtener las noticias para la página actual
         List<Noticia> noticias = noticiaDAO.pagination(startIndex, pageSize);
 
-        // Agregar noticias y detalles de paginación al request
         request.setAttribute("noticias", noticias);
         request.setAttribute("currentPage", page);
         request.setAttribute("pageSize", pageSize);
@@ -53,7 +49,6 @@ public class SvNoticia extends HttpServlet {
         String action = request.getParameter("action");
 
         if ("create".equals(action)) {
-            // Crear una nueva noticia
             Part filePart = request.getPart("fileImagen");
             InputStream inputStream = filePart.getInputStream();
 

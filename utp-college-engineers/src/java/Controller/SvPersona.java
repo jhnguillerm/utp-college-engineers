@@ -37,7 +37,6 @@ public class SvPersona extends HttpServlet {
         String action = request.getParameter("action");
 
         if ("edit".equals(action)) {
-            // Obtener los valores actualizados de los campos del formulario
             int idPersona = Integer.parseInt(request.getParameter("txtIdPersona"));
             String rol = request.getParameter("txtRol");
             String nombres = request.getParameter("nombres");
@@ -47,11 +46,9 @@ public class SvPersona extends HttpServlet {
             String direccion = request.getParameter("direccion");
             String nuevaContrasena = request.getParameter("nuevaContrasena");
 
-            // Obtener el Part para la imagen
             Part filePart = request.getPart("fileImagen");
             InputStream inputStream = filePart.getInputStream();
 
-            // Crear una instancia de Persona con los nuevos valores
             Persona personaActualizada = new Persona();
             personaActualizada.setId(idPersona);
             personaActualizada.setNombres(nombres);
@@ -63,10 +60,8 @@ public class SvPersona extends HttpServlet {
             personaActualizada.setRol(rol);
             personaActualizada.setImagen(inputStream);
 
-            // Actualizar la persona en la base de datos
             personasDAO.update(personaActualizada);
 
-            // Redirigir a tu página de perfil o donde desees
             response.sendRedirect(request.getContextPath() + "/View/perfil.jsp");
         }
     }

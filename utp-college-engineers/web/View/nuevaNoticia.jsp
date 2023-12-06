@@ -40,7 +40,7 @@
                                     <input name="txtIdNoticia" type="hidden" id="txtIdNoticia-hidden" class="form-control">
                                 </div>
                             </div>
-                            <!-- Titulo y Fecha de Publicación en la misma fila -->
+                            <!-- Titulo y Fecha de Publicación-->
                             <div class="mb-3 row">
                                 <!-- Titulo -->
                                 <div class="col-9">
